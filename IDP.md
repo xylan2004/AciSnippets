@@ -32,7 +32,11 @@ Need check [DockerOne](http://dockone.io/topic/Docker) for more information.
 
 	<img src="http://www.yiibai.com/uploads/allimg/131014/2029501R4-0.png" width="500"" heigh="400" title="Git Lifecycle"/>
 	
-	
+2. Git Status & Git Log  
+
+	<img src="https://www.atlassian.com/git/images/tutorials/getting-started/inspecting-a-repository/01.svg" />
+
+3. 
 
 ## Git Usage ##
 1. Get error "The following untracked working tree files would be overwritten by merge" when "git pull"
@@ -63,6 +67,8 @@ Need check [DockerOne](http://dockone.io/topic/Docker) for more information.
 
 3. git reset --hard HEAD^
 
+4. git log  
+	`git log --graph --decorate --oneline`
 
 
 
