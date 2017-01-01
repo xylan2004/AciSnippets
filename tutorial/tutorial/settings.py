@@ -25,7 +25,7 @@ SECRET_KEY = 'zsa#ga%^w(xnp&e#9yf_!n8_a@f!x3mge-qh)tyw(lpmm2lcjc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['104.199.127.70']
+ALLOWED_HOSTS = ['104.198.105.211', '104.199.127.70', '104.196.235.120','127.0.0.1','104.198.4.244', '104.198.3.234']
 
 
 # Application definition
@@ -37,12 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework'
+    'rest_framework',
+    'snippets.apps.SnippetsConfig',
+    'rest_framework_swagger',
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAdminUser',
+        #'rest_framework.permissions.IsAdminUser',
     ],
     'PAGE_SIZE': 10
 }
