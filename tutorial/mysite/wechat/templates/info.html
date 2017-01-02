@@ -1,0 +1,483 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no,email=no" name="format-detection">
+    <title>
+    	分类
+    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script type="text/javascript">var path = "/wechat";</script>
+</head>
+
+<body>
+<input type="hidden" id="ctx" value="./wechat">
+<input type="hidden" id="categoryCode" value="">
+<!-- 头部 start -->
+<header class="header">
+    <!--     <div class="head-return" onclick="history.go(-1)"></div> -->
+    <div class="title"><h1>分类</h1></div>
+</header>
+<!-- 头部 end -->
+<div class="ui-container">
+    <div class="service-list-wrap">
+        <div class="left">
+            <ul class="service-nav">
+                <!-- 二级分类列表 -->
+                    <li id="secondCode_104">
+                        <a href="javascript:void(0);">
+                            解决方案
+                        </a>
+                    </li>
+                
+                    <li id="secondCode_10020000">
+                        <a href="javascript:void(0);">
+                            电脑服务
+                        </a>
+                    </li>
+
+                    <li id="secondCode_10020001">
+                        <a href="javascript:void(0);">
+                            摄影照相
+                        </a>
+                    </li>
+
+                    <li id="secondCode_10020002">
+                        <a href="javascript:void(0);">
+                            打印扫描
+                        </a>
+                    </li>
+                
+                    <li id="secondCode_10020003">
+                        <a href="javascript:void(0);">
+                            手机平板
+                        </a>
+                    </li>
+                
+                    <li id="secondCode_10020004">
+                        <a href="javascript:void(0);">
+                            家庭网络
+                        </a>
+                    </li>
+                
+                    <li id="secondCode_10020005">
+                        <a href="javascript:void(0);">
+                            影音电视
+                        </a>
+                    </li>
+                
+                    <li id="secondCode_10020006">
+                        <a href="javascript:void(0);">
+                            智能家电
+                        </a>
+                    </li>
+            
+            </ul>
+        </div>
+        <div class="right">
+                <div class="service-list">
+                    <p class="service-list-title ui-border-b">解决方案</p>
+                    <!-- 判断是否存在banner图 -->
+                    
+                        <div class="service-list-banner">
+                            <a href='javascript:void(0)'>
+                                <img src="http://erp.95081.com/img/2016/10/09/c10cfc29ee5d456788bae9f45ed8e797.png" alt="">
+                            </a>
+                        </div>
+                    
+                    <!-- 三级分类列表 -->
+                    <ul class="service-list-items">
+                        
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/img/2016/10/09/dcb282726af9428c880a51cd7950c724.png" alt="">
+                                    <p>尊享定制
+                                    
+                                    </p>	
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/img/2016/10/09/a1c44738fafe489caf6e55f028239b57.png" alt="">
+                                    <p>“鲜”孝心</p>	
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/img/2016/10/09/7d94061c535e43fda78d25a3c726e737.png" alt="">
+                                    <p>智能管家
+                                    </p>	
+                                </a>
+                            </li>
+                        
+                        <div class="clearing"></div>
+                    </ul>
+                </div>
+            
+                <div class="service-list">
+                    <p class="service-list-title ui-border-b">老人电脑服务</p>
+                    <!-- 判断是否存在banner图 -->
+                    
+                    <!-- 三级分类列表 -->
+                    <ul class="service-list-items">
+                        
+                            <li>
+                                <a href='/wechat/pcgeneral'>
+                                    <img src="http://erp.95081.com/icon/2016/10/18/92a877c3725d4b8bbd148b7a2a37e48d.png58x58.png" alt="">
+                                    <p>无法开/关机</p>	
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/07/27/0194efc4262444aab10f53878440b1fa.png58x58.png" alt="">
+                                    <p>频繁死机</p>	
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/07/27/6aebddff611b4f2b828245f7bcce8e48.png58x58.png" alt="">
+                                    <p>外设失灵</p>	
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/07/27/2342db6823a8444f86d5989d4f0c389e.png58x58.png" alt="">
+                                    <p>看不了电视剧</p>	
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/07/25/66009e295fc24b5c8813323b033fa068.png58x58.png" alt="">
+                                    <p>打不开网页</p>	
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/07/25/66009e295fc24b5c8813323b033fa068.png58x58.png" alt="">
+                                    <p>其他问题</p>    
+                                </a>
+                            </li>
+                        
+                        <div class="clearing"></div>
+                    </ul>
+                </div>
+
+                <div class="service-list">
+                    <p class="service-list-title ui-border-b">摄影照相</p>
+                    <!-- 判断是否存在banner图 -->
+                    
+                    <!-- 三级分类列表 -->
+                    <ul class="service-list-items">
+                        
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/08/16/d63c04ae9d684bfbb5378a57522a1260.png58x58.png" alt="">
+                                    <p>照片导入/导出</p>  
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/08/15/b03beca542884b3cb68dcd6dbcf99d5c.png58x58.png" alt="">
+                                    <p>视频导入/导出</p> 
+                                </a>
+                            </li>
+                        
+                        <div class="clearing"></div>
+                    </ul>
+                </div>
+
+                <div class="service-list">
+                    <p class="service-list-title ui-border-b">打印扫描</p>
+                    <!-- 判断是否存在banner图 -->
+                    
+                    <!-- 三级分类列表 -->
+                    <ul class="service-list-items">
+                        
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/08/16/d63c04ae9d684bfbb5378a57522a1260.png58x58.png" alt="">
+                                    <p>家庭影集</p>  
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/08/15/b03beca542884b3cb68dcd6dbcf99d5c.png58x58.png" alt="">
+                                    <p>把照片扫到电脑里</p> 
+                                </a>
+                            </li>
+                        
+                        <div class="clearing"></div>
+                    </ul>
+                </div>
+
+                <div class="service-list">
+                    <p class="service-list-title ui-border-b">手机平板</p>
+                    <!-- 判断是否存在banner图 -->
+                    
+                    <!-- 三级分类列表 -->
+                    <ul class="service-list-items">
+                        
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/08/16/04bd66ba091e4af2884fb8fcaaedf22f.png58x58.png" alt="">
+                                    <p>新机上手</p>	
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/08/15/66a9da931aab41cda5433e2aae4b19fb.png58x58.png" alt="">
+                                    <p>无法开/关机</p>	
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/08/15/925d81af4d26418696d0bb334fe45660.png58x58.png" alt="">
+                                    <p>紧急救援</p>	
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/08/15/3eaec445a4fe49eb853bf2d6da3faf80.png58x58.png" alt="">
+                                    <p>想聊天</p>	
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/07/27/d03349782b6748e3a64a1a5ddc5479f2.png58x58.png" alt="">
+                                    <p>想娱乐</p>	
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/07/27/d03349782b6748e3a64a1a5ddc5479f2.png58x58.png" alt="">
+                                    <p>移动上网</p>  
+                                </a>
+                            </li>
+                        
+                        <div class="clearing"></div>
+                    </ul>
+                </div>
+            
+                <div class="service-list">
+                    <p class="service-list-title ui-border-b">家庭网络</p>
+                    <!-- 判断是否存在banner图 -->
+                    
+                    <!-- 三级分类列表 -->
+                    <ul class="service-list-items">
+                        
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/08/16/d63c04ae9d684bfbb5378a57522a1260.png58x58.png" alt="">
+                                    <p>新网络</p>	
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/08/15/b03beca542884b3cb68dcd6dbcf99d5c.png58x58.png" alt="">
+                                    <p>故障恢复</p>	
+                                </a>
+                            </li>
+                        
+                        <div class="clearing"></div>
+                    </ul>
+                </div>
+            
+                <div class="service-list">
+                    <p class="service-list-title ui-border-b">影音电视</p>
+                    <!-- 判断是否存在banner图 -->
+                    
+                    <!-- 三级分类列表 -->
+                    <ul class="service-list-items">
+                        
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/07/27/651bbb40aa244a7b897fc9d599cc3878.png58x58.png" alt="">
+                                    <p>看电视剧</p>	
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/07/27/5bed2b8174e044e88273b8ff33ac9947.png58x58.png" alt="">
+                                    <p>用电视机</p>	
+                                </a>
+                            </li>
+
+                        <div class="clearing"></div>
+                    </ul>
+                </div>
+            
+                <div class="service-list">
+                    <p class="service-list-title ui-border-b">智能家电</p>
+                    <!-- 判断是否存在banner图 -->
+                    
+                    <!-- 三级分类列表 -->
+                    <ul class="service-list-items">
+                        
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/07/27/b206a01903844491a4aaafa30892181b.png58x58.png" alt="">
+                                    <p>游戏机</p>	
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/07/27/a3f237537101438fa81dcf3534a54230.png58x58.png" alt="">
+                                    <p>厨房电器</p>	
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/07/27/a3f237537101438fa81dcf3534a54230.png58x58.png" alt="">
+                                    <p>卫生间电器</p> 
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/07/27/a3f237537101438fa81dcf3534a54230.png58x58.png" alt="">
+                                    <p>家居电器</p> 
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href='javascript:void(0)'>
+                                    <img src="http://erp.95081.com/icon/2016/07/27/a3f237537101438fa81dcf3534a54230.png58x58.png" alt="">
+                                    <p>其他电器</p> 
+                                </a>
+                            </li>
+                        
+                        <div class="clearing"></div>
+                    </ul>
+                </div>
+            
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/common/jquery.min.js' %}" ></script>
+<script src="{% static 'js/common/flexible.js' %}"></script>
+<script src="{% static 'js/common/swiper.min.js' %}"></script>
+<script src="{% static 'js/common/touchslide.js' %}"></script>
+<script src="{% static 'js/common/func.js' %}"></script>
+<script src="{% static 'js/common/dialog.js' %}" ></script>
+<script src="{% static 'js/common/common.js' %}" ></script>
+<script src="{% static 'js/common/category.js' %}" ></script>
+<script>
+    $(function () {
+        var categoryNav = $('.service-nav > li'),
+                clientH = $(window).height(),
+                headerH = $('.header').height(),
+                footerH = $('footer').height(),
+                leftH = clientH - headerH - footerH;
+        $('.service-list-wrap .left').height(leftH);
+
+        //动态添加id索引
+        categoryNav.each(function (index, item) {
+            $(item).attr('data-id', index);
+        });
+        $('.service-list').each(function (index, item) {
+            $(item).prop('id', 'item-' + index);
+        });
+        //点击滚动到相应位置
+        $(categoryNav).click(function () {
+            var id = $(this).attr('data-id');
+            var h = $('#item-' + id).offset().top;
+            $('body,html').animate({scrollTop: h - 42}, 200);
+        });
+        //滚动事件
+        $(window).scroll(function () {
+            var top = $(document).scrollTop();
+            var menu = $(".service-nav");
+            var items = $(".service-list");
+
+            var curId = "",
+                    activeId = "";
+
+            items.each(function () {
+                var m = $(this);
+                var itemsTop = m.offset().top;
+                if (top > itemsTop - 44) {
+                    curId = m.attr("id");
+                    activeId = curId.substring(5);
+                } else {
+                    return false;
+                }
+            });
+            //给相应的楼层设置active,取消其他楼层的active
+            var curLink = menu.find(".active");
+            if (activeId && curLink.attr("data-id") != activeId) {
+                curLink.removeClass("active");
+                var liActive = menu.find("[data-id=" + activeId + "]");
+                liActive.addClass("active");
+            }
+
+            //菜单自动滚动
+            var navLiH = categoryNav.height(),
+                    index = $('.service-nav').find('.active').index(),
+                    scrollH = navLiH * (index + 1) - leftH;
+            if((navLiH * (index + 1)) > leftH){
+                menu.scrollTop(scrollH);
+            }else{
+                menu.scrollTop(0);
+            }
+        });
+        getClick();
+        comm.getActive("foot_class");
+    });
+</script>
+
+	
+<footer class="ui-footer">
+ 	 <a href="javascript:index();" class="index-btn " id="foot_index"><i class="icon-footer-index"></i><div class="ui-footer-text">首页</div></a>
+     <a href="/wechat/info" class="index-btn" id="foot_class"><i class="icon-footer-class"></i><div class="ui-footer-text">分类</div></a>
+     <a href="/wechat/plan" class="index-btn" id="foot_cart"><i class="icon-footer-cards ui-badge-wrap"><div class="ui-badge" style="display: none;"></div></i><div class="ui-footer-text">孝心计划</div></a>
+     <a href="/wechat/my" class="index-btn" id="foot_myinfo"><i class="icon-footer-my"></i><div class="ui-footer-text">我的</div></a>
+</footer>
+
+
+<script type="text/javascript">
+$(function(){
+	var selectNum = 0;
+	if(selectNum>0){//脚部购物车导航数量
+		$(".ui-badge").show();
+		$(".ui-badge").html("").html(selectNum);
+	}else{
+		$(".ui-badge").hide();
+	}
+})
+
+function index(){
+	var dataTime= new Date().format("yyyyMMddhhmmss");
+	window.location.href="/wechat/index?index_"+dataTime;
+}
+</script>
+</body>
+</html>

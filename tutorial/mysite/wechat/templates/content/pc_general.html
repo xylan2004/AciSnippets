@@ -1,0 +1,85 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>PC/笔记本系统维修</title>
+</head>
+<body>
+<input type="hidden" id="ctx" value="/wechat">
+<!-- 头部 start -->
+<!-- 如果是app调用隐藏头部跟按钮 -->
+
+	<header class="header">
+	    <div class="head-return" onclick="fastOrderIntr.callBack()"></div>
+	    <div class="title"><h1>PC/笔记本系统维修</h1></div>
+	</header>
+
+<!-- 头部 end -->
+ 
+  	
+  	<div  id="intropage-tabbox" class="ui-intro-container">
+ 
+    <div class="order-nav ui-border-b hd">
+        <ul>
+            <li>详情</li>
+            <li>价格</li>
+        </ul>
+    </div>
+    <div class="bd" id="intropage-tabbox-bd">
+        <div class="order-class">
+            <section>
+                <div class="spread-line"></div>
+                <!--产品介绍-->
+                <div class="product-intro-wrap" id="imgItems">
+                	<!-- dataList -->
+                </div>
+            </section>
+        </div>
+        <div class="order-class">
+            <section>
+                <div class="spread-line"></div>
+                <div class="product-intro-table" id="priceItems">
+                    <!-- dataList -->
+                </div>
+            </section>
+        </div>
+    </div>
+    <!--底部按钮-->
+    
+		<!--底部按钮-->
+		<div class="btn-wrap-botfixed">
+			<div class="width">
+	        	<button class="btn-big" id="clickFastButton">快速预约</button>
+	        </div>
+	    </div>
+	
+</div>
+<script type="text/javascript">
+	var categoryCode = "100200010005";
+	var cityCode = "101001001";
+	var productcode = "";
+	var path = "/wechat";
+</script>
+<script src="{% static 'js/common/jquery.min.js' %}" ></script>
+<script src="{% static 'js/common/flexible.js' %}"></script>
+<script src="{% static 'js/common/swiper.min.js' %}"></script>
+<script src="{% static 'js/common/touchslide.js' %}"></script>
+<script src="{% static 'js/common/func.js' %}"></script>
+<script src="{% static 'js/common/dialog.js' %}" ></script>
+<script src="{% static 'js/common/common.js' %}" ></script>
+<script src="{% static 'js/common/category.js' %}" ></script>
+<script src="{% static 'js/personnel/personnel-intro.js' %}"></script>
+
+<script>
+
+</script>
+</body>
+</html>

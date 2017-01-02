@@ -1,0 +1,225 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta content="yes" name="apple-mobile-web-app-capable" />
+  <meta content="yes" name="apple-touch-fullscreen">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+  <meta content="telephone=no,email=no" name="format-detection">
+    <title>
+    	我的
+    </title>
+    	
+    <meta charset="UTF-8">
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}">
+</head>
+<body>
+	
+<input type="hidden" value="./wechat" id="ctx"/>
+<div id="append"></div>
+<script src="{% static 'js/common/jquery.min.js' %}" ></script>
+<script src="{% static 'js/common/flexible.js' %}"></script>
+<script src="{% static 'js/common/swiper.min.js' %}"></script>
+<script src="{% static 'js/common/touchslide.js' %}"></script>
+<script src="{% static 'js/common/func.js' %}"></script>
+<script src="{% static 'js/common/dialog.js' %}" ></script>
+<script src="{% static 'js/common/common.js' %}" ></script>
+<script src="{% static 'js/common/category.js' %}" ></script>
+<script type="text/javascript">
+    $(function () {
+        getpage();
+        comm.getActive("foot_myinfo");
+    });
+    function getpage() {
+        var data = {"msg":"请求成功","code":"0","data":{"customerInfor":{"lastTime":"2017-01-01 21:39:06","isFirstLogin":1,"isBigCust":2,"sex":1,"mobile":"13800138000","haveLoginPwd":false,"havePayPwd":false,"userName":"13800138000","userId":924963360458021,"regIp":"192.168.199.173","isVip":2,"vipInfo":"成为会员","regTime":"2017-01-01 13:49:43","isfrozen":2},"oauthCode":"6b73abbabfa9386e1119162f02846f51","orderCount":{"afterCount":0,"orderCount":0,"payCount":0},"aboutGJBUrl":"#","labels":[{"amount":"0.00","name":"余额","key":"balance"},{"amount":"0","name":"礼品卡","key":"Card"},{"amount":"0","name":"优惠券","key":"coupon"},{"amount":"0.00","name":"收益","key":"profit"}]}};
+        pageInit(data.data);
+        /**
+        $.ajax({
+            type: 'POST',
+            url: "./wechat/user/infolistquery",
+            dataType: "json",
+            success: function (data) {
+                pageInit(data.data);
+            }
+        });
+        **/
+    }
+    function pageInit(data) {
+        var html = "";
+        html += '<header class="header">';
+        html += '<div class="title"><h1>我的</h1></div>';
+        html += '<a href="javascript:void(0)"><div class="icon-head-tool"></div></a>';
+        html += '</header>';
+        html += '<div class="ui-container">';
+        html += '<div class="my-info-img position-r">';
+        html += '<img src="{% static "images/my-info-img.png" %}" alt=""/>';
+        if (data != null) {
+            console.log(data.customerInfor);
+            data.customerInfor.userName = data.customerInfor.userName || data.customerInfor.mobile;
+            var userName = data.customerInfor.userName==data.customerInfor.mobile
+                    ?data.customerInfor.userName.substring(0, 3)+'****'+data.customerInfor.userName.substring(7)
+                    :data.customerInfor.userName;
+
+
+            html += '<div class="my-id" >';
+            if (data.customerInfor.photo != null) {
+                html += '<div class="my-id-img mr18" onclick="void(0)"><img src="' + data.customerInfor.photo + '" alt=""></div>';
+            } else {
+                html += '<div class="my-id-img mr18" onclick="void(0)"><img src="{% static "images/my-member.png" %}" alt=""></div>';
+            }
+            html += ' <div class="pro-text" onclick="void(0)">';
+            html += '<h4>' + userName + '</h4>';
+            html += '</div>';
+            if (data.customerInfor.isBigCust == 2) {
+                html += '<a href="" class="become-bigcustomers"></a>';
+            } else {
+                html += '<div class="my-bigcustomers orange">大客户</div>';
+            }
+            if (data.customerInfor.isVip == 2) {
+                html += '<a href="" class="become-member"></a>';
+            } else {
+                html += '<div class="my-member orange">会员</div>	';
+            }
+            html += '</div>';
+        } else {
+            html += '<div class="my-id" onclick="toLogin()">';
+            html += '<div class="my-id-img mr18"><img src="{% static "images/my-portrait.png" %}" alt=""></div>';
+            html += '<div class="pro-text">';
+            html += '<h4>登录/注册</h4>';
+            html += '</div>';
+            html += '</div>';
+        }
+        html += '</div>';
+        html += ' <div class="floor">';
+        html += ' <div class="ui-title ui-border-b position-r "   onclick="void(0)">';
+        html += ' <a href="###">';
+        html += '  <div class="ico"><img src="{% static "images/icon-my-order.png" %}" alt=""></div>';
+        html += ' <div class="title"><h4>我的订单</h4></div>';
+        html += ' <div class="more">查看全部订单</div>';
+        html += ' </a>';
+        html += '</div>';
+        html += '<nav class="nav-wrap pt24">';
+        if (data != null) {
+            if (data.orderCount.payCount != 0) {
+                html += ' <a href="javaScript:;"  onclick="void(0)"><i class="icon-my-payoff ui-badge-wrap"><div class="ui-badge">' + data.orderCount.payCount + '</div></i><div class="nav-text">待支付</div></a>';
+            } else {
+                html += ' <a href="javaScript:;"  onclick="void(0)"><i class="icon-my-payoff ui-badge-wrap"></i><div class="nav-text">待支付</div></a>';
+            }
+            if (data.orderCount.orderCount != 0) {
+                html += ' <a href="javaScript:;" onclick="void(0)"><i class="icon-my-serve ui-badge-wrap"><div class="ui-badge">' + data.orderCount.orderCount + '</div></i><div class="nav-text">待服务/收货</div></a>';
+            } else {
+                html += ' <a href="javaScript:;" onclick="void(0)"><i class="icon-my-serve ui-badge-wrap"></i><div class="nav-text">待服务/收货</div></a>';
+
+            }
+            if (data.orderCount.afterCount != 0) {
+                html += ' <a href="javascript:void(0)"><i class="icon-my-refund ui-badge-wrap"><div class="ui-badge">' + data.orderCount.afterCount + '</div></i><div class="nav-text">售后</div></a>';
+            } else {
+                html += ' <a href="javascript:void(0)"><i class="icon-my-refund ui-badge-wrap"></i><div class="nav-text">售后</div></a>';
+            }
+        } else {
+            html += ' <a href="javaScript:;" onclick="void(0)"><i class="icon-my-payoff"></i><div class="nav-text">待支付</div></a>';
+            html += ' <a href="javaScript:;" onclick="void(0)"><i class="icon-my-serve ui-badge-wrap"></i><div class="nav-text">待服务/收货</div></a>';
+            html += ' <a href="javascript:void(0)"><i class="icon-my-refund"></i><div class="nav-text">售后</div></a>';
+        }
+        html += '</nav>';
+        html += '</div>';
+        html += ' <div class="spread-line"></div>';
+        html += '<div class="floor">';
+        html += '<div class="ui-title ui-border-b">';
+        html += '<a href="javascript:void(0)">';
+        html += '<div class="ico"><img src="{% static "images/icon-my-wallet.png" %}" alt=""></div>';
+        html += '<div class="title"><h4>我的钱包</h4></div>';
+        html += '<div class="arrow"><img src="{% static "images/arrow-right.png" %}" alt=""></div>';
+        html += '</a>';
+        html += '</div>';
+        html += '<nav class="nav-wrap pt24">';
+        if (data != null) {
+            for (var i = 0; i < data.labels.length; i++) {
+                var c = data.labels[i];
+                if (c.key == 'balance') {
+                    html += '<a href="javascript:void(0)"><div class="nav-text">' + c.amount + '元</div><div class="nav-text">' + c.name + '</div></a>';
+                }
+                if (c.key == 'Card') {
+                    html += '<a href="javascript:void(0)"><div class="nav-text">' + c.amount + '张</div><div class="nav-text">' + c.name + '</div></a>';
+                }
+                if (c.key == 'coupon') {
+                    html += '<a href="javascript:void(0)"><div class="nav-text">' + c.amount + '张</div><div class="nav-text">' + c.name + '</div></a>';
+                }
+            }
+        } else {
+            html += '<a href="javascript:void(0)"><div class="nav-text">0元</div><div class="nav-text">余额</div></a>';
+            html += '<a href="javascript:void(0)"><div class="nav-text">0张</div><div class="nav-text">礼品卡</div></a>';
+            html += '<a href="javascript:void(0)"><div class="nav-text">0张</div><div class="nav-text">优惠券</div></a>';
+        }
+
+        html += '</nav>';
+        html += '</div>';
+        html += '<div class="spread-line"></div>';
+        html += '<div class="ui-title solution-title">';
+        html += '<a href="javascript:void(0)">';
+        html += '<div class="ico"><img src="{% static "images/icon-my-solution.png" %}" alt=""></div>';
+        html += '<div class="title"><h4>我的解决方案</h4></div>';
+        html += '<div class="arrow"><img src="{% static "images/arrow-right.png" %}" alt=""></div>';
+        html += '</a>';
+        html += '</div>';
+        html += '<div class="spread-line"></div>';
+        html += '<nav class="nav-wrap pt24 mb18">';
+        html += '<a href="javascript:void(0)"><i class="icon-my-favorite"></i><div class="nav-text">收藏夹</div></a>';
+        html += '<a href="javascript:void(0)"><i class="icon-my-addres"></i><div class="nav-text">地址管理</div></a>';
+        html += '<a href="javascript:void(0)"><i class="icon-my-safety"></i><div class="nav-text">安全设置</div></a>';
+        html += '<a href="javascript:void(0)"><i class="icon-my-aboutxhh"></i><div class="nav-text">关于孝哈哈</div></a>';
+        html += '</nav>';
+        html += '</div>';
+        $("#append").empty().html(html);
+    }
+    function toOrderwaitPay(state) {
+        window.open("./wechat/order/userOrderList#state=" + state, "_self");
+    }
+    function toLogin() {
+        window.open("./wechat/user/toMobileLogin?returnUrl=" + encodeURIComponent(window.location.href), "_self");
+    }
+    ;
+    function myOrderList() {
+        window.open("./wechat/order/userOrderList#state=0", "_self");
+    }
+
+    function set() {
+        window.open("./wechat/user/userProfileSet", "_self");
+    }
+
+</script>
+
+	
+<footer class="ui-footer">
+ 	 <a href="javascript:index();" class="index-btn " id="foot_index"><i class="icon-footer-index"></i><div class="ui-footer-text">首页</div></a>
+     <a href="/wechat/info" class="index-btn" id="foot_class"><i class="icon-footer-class"></i><div class="ui-footer-text">分类</div></a>
+     <a href="/wechat/plan" class="index-btn" id="foot_cart"><i class="icon-footer-cards ui-badge-wrap"><div class="ui-badge" style="display: none;"></div></i><div class="ui-footer-text">孝心计划</div></a>
+     <a href="/wechat/my" class="index-btn" id="foot_myinfo"><i class="icon-footer-my"></i><div class="ui-footer-text">我的</div></a>
+</footer>
+
+
+<script type="text/javascript">
+$(function(){
+	var selectNum = 0;
+	if(selectNum>0){//脚部购物车导航数量
+		$(".ui-badge").show();
+		$(".ui-badge").html("").html(selectNum);
+	}else{
+		$(".ui-badge").hide();
+	}
+})
+
+function index(){
+	var dataTime= new Date().format("yyyyMMddhhmmss");
+	window.location.href="/wechat/index?index_"+dataTime;
+}
+</script>
+</body>
+</html>

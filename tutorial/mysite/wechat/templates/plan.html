@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no,email=no" name="format-detection">
+    <title>
+	 孝心计划
+    </title>
+	
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+	
+<input type="hidden" value="./wechat" id="ctx" />
+<!-- 头部 start -->
+<header class="header">
+	
+    <div class="title"><h1>孝心计划</h1></div>
+    <div class="head-text" id="cart_editor">
+        <span onclick="cart.showEditor()">编辑</span>
+    </div>
+</header>
+<div id="cartItems">
+	<!-- 头部 end -->
+	<div class="ui-order-container mb200">
+	
+	    <div class="spread-line"></div>
+	    
+	    <section class="mb18" id="goodsItems">
+	        <!-- 普通商品列表 -->
+	    </section>
+	    
+	    <div class="privilege-card-finish gray" id="failureTitle" style="display: none;">
+	        <div class="card-lose-efficacy">
+	            <div class="lose-efficacy-text">已失效</div>
+	        </div>
+	    </div>
+	    <section id="failureGoods">
+	    	<!-- 失效商品列表 -->
+	    </section>
+	    
+	    <section id="cartIsNull" style="display: none;">
+	    	<div class="ui-order-container mb110">
+				<div class="ui-empty ui-empty-cart"><p> 还没有计划！</p><a href="javascript:void(0)">需要帮助？</a></div>
+			</div>
+	    </section>
+	    
+	    <section id="differCity" style="display: none;">
+		    <div class="ui-empty cart-empty-city">
+		        <p><span>由于不同城市不同业务和价格</span><span>购物车内容只能在当时选择的城市显示</span></p>
+		    </div>
+	    </section>
+	    
+	</div>
+	<div class="cart-footer" id="cart_foot">
+	    <div class="ui-col-1">
+	        <div class="ml18"><label class="ui-checkbox mr18"><input type="checkbox" onclick="checkStart(null,1,this.checked)" class="allCheck"  /></label><span class="white">全选</span></div>
+	    </div>
+	    <div class="total mr32" >
+	        <p class="white">
+	            <span class="sum">总计：</span><span class="integer" id="f_b"></span><span class="decimal" id="f_s"></span></br>
+	            <span class="white">运费：</span><span class="decimal" id="y_b"></span><span class="white" id="y_s"></span>
+	        </p>
+	    </div>
+	    <div class="card-bottombtn-wrap"><a href="javascript:cart.showSett()" class="ui-bottom-btn white">去结算</a></div>
+	</div>
+</div>
+<div class="ui-order-container" style="display: none;" id="requestFailed">
+	<div class="ui-success-tips"><img src="{% static 'images/mysl-failure.png' %}"/><p>网络请求失败</p></div>
+	<div class="ui-failure-tipsbottom">网络异常</div>
+	<div class="ui-success-change-links"><a href="./wechat/cart/init">刷新购物车</a></div>
+</div>
+<script src="{% static 'js/common/jquery.min.js' %}" ></script>
+<script src="{% static 'js/common/flexible.js' %}"></script>
+<script src="{% static 'js/common/swiper.min.js' %}"></script>
+<script src="{% static 'js/common/touchslide.js' %}"></script>
+<script src="{% static 'js/common/func.js' %}"></script>
+<script src="{% static 'js/common/dialog.js' %}" ></script>
+<script src="{% static 'js/common/common.js' %}" ></script>
+<script src="{% static 'js/common/category.js' %}" ></script>
+<script type="text/javascript" src="{% static 'js/cart/cart_list.js' %}"></script>
+<script type="text/x-handlebars-template" id="cartTitle">
+	<div class="ui-title ui-border-b">
+	<div class="ico mr18">
+		<label class="ui-checkbox">
+			<input type="checkbox" onclick="checkStart(null,1,this.checked)" class="allCheck" />
+		</label>
+	</div>
+	<div class="title"><h4>商品</h4></div>
+	</div>
+</script>
+
+	
+<footer class="ui-footer">
+ 	 <a href="javascript:index();" class="index-btn " id="foot_index"><i class="icon-footer-index"></i><div class="ui-footer-text">首页</div></a>
+     <a href="/wechat/info" class="index-btn" id="foot_class"><i class="icon-footer-class"></i><div class="ui-footer-text">分类</div></a>
+     <a href="/wechat/plan" class="index-btn" id="foot_cart"><i class="icon-footer-cards ui-badge-wrap"><div class="ui-badge" style="display: none;"></div></i><div class="ui-footer-text">孝心计划</div></a>
+     <a href="/wechat/my" class="index-btn" id="foot_myinfo"><i class="icon-footer-my"></i><div class="ui-footer-text">我的</div></a>
+</footer>
+
+
+<script type="text/javascript">
+$(function(){
+	var selectNum = 0;
+	if(selectNum>0){//脚部购物车导航数量
+		$(".ui-badge").show();
+		$(".ui-badge").html("").html(selectNum);
+	}else{
+		$(".ui-badge").hide();
+	}
+})
+
+function index(){
+	var dataTime= new Date().format("yyyyMMddhhmmss");
+	window.location.href="/wechat/index?index_"+dataTime;
+}
+</script>
+</body>
+</html>
